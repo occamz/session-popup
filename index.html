@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Session popup</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+  <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .content {
+          width: 800px;
+        margin: 0 auto; 
+      }
+
+      .background {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        opacity: .80;
+
+        display: none;
+      }
+
+      .popup {
+        width: 600px;
+        background-color: #CCC;
+        border: 6px solid #EEE;
+        padding: 30px;
+        
+        position: absolute;
+        margin: 0 auto;
+        top: 10%;
+        left: 32%;
+        z-index: 1002;
+
+        display: none;
+      }
+
+      .popup h1 {
+          margin-top: 0;
+      }
+      .popup img {
+          float: left;
+          margin-right: 15px;
+          margin-bottom: 15px;
+          height: 100%;
+          width: auto;
+          border: 1px solid #222;
+      }
+      .popup button {
+          width: 100%;
+      }
+      .popup .close {
+          font-size: 30px;
+          position: absolute;
+          right: 20px;
+          top: -20px;
+          cursor: pointer;
+      }
+
+  </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Some content on the page...</h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget mi tellus. Nulla feugiat sit amet odio porttitor consectetur. Aliquam ac viverra arcu. Quisque vitae blandit lorem. Praesent quis ante venenatis, fringilla nibh quis, blandit urna. Aliquam erat volutpat. Proin placerat luctus elit, quis euismod nisi tempor quis. Curabitur faucibus libero dolor, ac porttitor elit viverra finibus. Curabitur iaculis commodo leo, pharetra venenatis nisi tincidunt non. Cras faucibus porta augue dignissim ornare. Sed sodales elit nec dapibus convallis. Nunc ac turpis suscipit, dictum urna et, aliquam tellus. Fusce suscipit felis a justo efficitur hendrerit. Pellentesque consectetur laoreet varius.</p>
+
+        <p>Aliquam nec consectetur purus, nec condimentum augue. Sed in dolor sed purus finibus iaculis at et nisl. Vivamus eget blandit diam, et vestibulum erat. Duis cursus dignissim convallis. Sed sed risus rutrum odio placerat ultrices non venenatis diam. Curabitur sit amet diam quam. In arcu leo, mattis vitae vehicula a, tempus eu massa. Donec lacinia tortor purus, vitae aliquam justo condimentum eget. Pellentesque ut facilisis lorem, quis euismod tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum libero a mattis facilisis.</p>
+
+        <p>Fusce elementum, enim eu faucibus pulvinar, quam diam pretium ante, in efficitur dui nibh eget ex. Donec aliquet turpis quam, id cursus turpis ultrices in. Nullam egestas sollicitudin dui, at elementum est porta nec. Pellentesque dapibus, leo eget eleifend varius, urna justo pharetra ante, in tristique nisl mauris eu nibh. In hac habitasse platea dictumst. Sed elementum orci magna, hendrerit egestas est rhoncus sed. Aenean suscipit est ut neque sodales, ut luctus sem lobortis. Nam iaculis nunc sed ipsum consectetur bibendum.</p>
+
+        <p>Praesent id nulla nunc. In fringilla in felis vel imperdiet. Cras dignissim tempor nulla ac mollis. Cras auctor lobortis lectus. Vestibulum aliquam egestas eros, in tristique lectus efficitur vitae. Nam nec massa molestie, tincidunt nisl vitae, dictum ligula. Mauris vel ullamcorper nisi. Ut ante diam, suscipit quis lacus vel, tempus fringilla sapien. Mauris vehicula tempus dui quis sodales. In et purus interdum, vehicula lacus viverra, pharetra justo. Praesent dictum nibh eu purus pharetra, a egestas mauris sagittis. Nam ullamcorper dolor eu lorem aliquet laoreet. Donec sit amet dapibus mi, sit amet feugiat arcu.</p>
+
+        <p>Donec pretium sem vitae pretium gravida. Quisque ornare, massa at cursus eleifend, dui urna tristique sem, nec semper ante purus quis erat. Vestibulum tortor turpis, lacinia id nunc id, cursus eleifend quam. Aenean tempus sapien nisl, eu iaculis risus malesuada non. Donec rhoncus, metus vitae malesuada finibus, sapien diam porttitor lorem, in aliquam urna ipsum rhoncus ante. Quisque gravida consectetur odio, ac sodales tellus semper non. Morbi tempor velit at laoreet imperdiet. Maecenas nisl mi, faucibus id nunc eu, semper placerat tortor. Quisque nec arcu nibh. Praesent et purus ac urna tempus rhoncus at sed magna. Quisque elit eros, eleifend at fermentum vitae, ultrices ut leo. Vivamus a condimentum nisi. In ultricies pellentesque sapien quis fermentum. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+    </div>
+    <div class="background"></div>
+    <div class="popup">
+        <p class="close">x</p>
+        <h1>A new shipment of monkey brains has arrived</h1>
+        <img src="monkey.png"/>
+        <p><i>New research show that monkey brains have positive effects on both your mental and physical health when eaten daily.</i></p>
+        <p>University of Darsnickhz research indicates that eating more monkey brains can substantially increase people's later happiness levels.</p>
+        <p>To be published shortly in the American Journal of Public Health, the study is one of the first major scientific attempts to explore psychological well-being beyond the traditional finding that monkey brains can reduce risk of cancer and heart attacks.</p>
+        <p>The academics think it may be possible to link this study to current research into antioxidants which suggests a connection between optimism and carotenoid in the blood.</p>
+        <p><b>Our monkeys have been locally and organically grown, making them the healthiest choice for you.</b></p>
+        <button>Order yours while you have the chance!</button>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function() {
+            if (localStorage.getItem('session-popup') === null) {
+                
+                $(".background").fadeIn();
+                $(".popup").fadeIn();
+                $(".close").on("click", function() {
+                    $(this).parent().fadeOut();
+                    $(".background").fadeOut();
+                });
+
+                localStorage.setItem('session-popup', true);
+            }
+        });
+    </script>
+</body>
+</html>
