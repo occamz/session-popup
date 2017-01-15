@@ -10,7 +10,7 @@
       }
 
       .content {
-          width: 800px;
+        width: 800px;
         margin: 0 auto; 
       }
 
@@ -97,19 +97,49 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
     <script>
-        $(document).ready(function() {
-            if (localStorage.getItem('session-popup') === null) {
-                
-                $(".background").fadeIn();
-                $(".popup").fadeIn();
-                $(".close").on("click", function() {
-                    $(this).parent().fadeOut();
-                    $(".background").fadeOut();
-                });
+        //Credit goes to https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/
+        //for the general logic behind a shared sessionStorage between tabs/windows
+        (function() {
+            var timeout = null;
 
-                localStorage.setItem('session-popup', true);
+            var showPopup = function() {
+                if (localStorage.getItem('session-popup') === null) {
+                    $(".background").fadeIn();
+                    $(".popup").fadeIn();
+                    $(".close, .background").on("click", function() {
+                        $(".popup").fadeOut();
+                        $(".background").fadeOut();
+                    });
+                    sessionStorage.setItem("session-popup", true);
+                }
             }
-        });
+
+            $(window).on("storage", function(e) {
+                if (event.key == "get-session") {
+                    //Return sessionStorage
+                    localStorage.setItem("session", sessionStorage.getItem("session-popup"));
+                    localStorage.removeItem("session");
+
+                } else if (event.key == "session" && !sessionStorage.length) {
+                    //Set session variable and clear timeout
+                    sessionStorage.setItem("session-popup", event.newValue);
+                    if(event.newValue !== null) {
+                        clearTimeout(timeout);
+                    }
+                }
+            });
+
+            $(document).ready(function() {
+                if (!sessionStorage.length) {
+                    //Request existing sessionStorage
+					localStorage.setItem("get-session", Date.now());
+                    timeout = setTimeout(showPopup, 1500);
+				}
+
+            });
+            
+        })();
+        
     </script>
 </body>
 </html>
